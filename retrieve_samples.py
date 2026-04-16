@@ -16,13 +16,11 @@ def retrieve_similar_samples(new_desc: str, top_k: int = 5):
     )
     return results 
 if __name__ == "__main__":
-    # 测试：输入一条新漏洞描述
-    test_desc = "某CMS系统存在SQL注入漏洞，攻击者通过URL参数注入恶意代码，无需登录即可读取数据库用户表。"
-    similar_samples = retrieve_similar_samples(test_desc, top_k=5)
-
-    # 打印检索结果
-    print("🔍 检索到的相似样本：")
-    for i, sample in enumerate(similar_samples, 1):
-        print(f"\n--- 样本{i} ---")
-        print(f"描述：{sample['description'][:50]}...")  # 只显示前50字
-        print(f"指标：{sample['metrics']}")
+    # 示例新描述
+    new_description = "This is a sample vulnerability description for testing."
+    
+    # 获取相似样本
+    similar_samples = retrieve_similar_samples(new_description)
+    
+    # 打印结果
+    print(similar_samples)
