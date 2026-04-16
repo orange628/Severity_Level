@@ -1,14 +1,3 @@
-import os
-import ssl
-import json
-import math
-import mysql.connector
-from mysql.connector import Error
-import chromadb
-from chromadb.utils import embedding_functions
-from sentence_transformers import SentenceTransformer
-from config import DB_CONFIG, TABLE_NAME, CHROMA_PATH, COLLECTION_NAME
-
 def build_vector_db(limit: int = 100):
     try:
         # 1. 连接MySQL，加载样本
