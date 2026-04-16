@@ -14,16 +14,7 @@ def retrieve_similar_samples(new_desc: str, top_k: int = 5):
         n_results=top_k,  # 返回Top 5相似样本
         include=["documents", "metadatas"]  # 返回描述和指标
     )
-
-    # 3. 格式化结果
-    samples = []
-    for doc, meta in zip(results["documents"][0], results["metadatas"][0]):
-        samples.append({
-            "description": doc,
-            "metrics": meta  # 包含AV/AC/PR等8个指标
-        })
-    return samples
-
+    return results 
 if __name__ == "__main__":
     # 测试：输入一条新漏洞描述
     test_desc = "某CMS系统存在SQL注入漏洞，攻击者通过URL参数注入恶意代码，无需登录即可读取数据库用户表。"
