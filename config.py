@@ -5,18 +5,13 @@ load_dotenv()  # 加载.env文件
 
 
 
-DB_CONFIG = {
-    "host": "127.0.0.1",
-    "user": "root",
-    "password": "root",
-    "database": "data",
-    "charset": "utf8mb4"
+
 }
-TABLE_NAME = "pt_vul_data_copy1"  # 已精简的表名，包含15个字段（描述+8指标）
+TABLE_NAME = "data"  # 已精简的表名，包含15个字段（描述+8指标）
 
 # Chroma向量库配置（本地存储路径）
 CHROMA_PATH = "./chroma_db"  # 向量库存到当前文件夹的chroma_db目录
-COLLECTION_NAME = "cvss_knowledge_base"  # 集合名（自定义，如cvss_data）
+COLLECTION_NAME = "knowledge_base"  # 集合名（自定义，如cvss_data）
 
 # DeepSeek API配置
 DEEPSEEK_API_KEY = "xxxxxxxx" 

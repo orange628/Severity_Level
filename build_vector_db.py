@@ -9,15 +9,6 @@ from chromadb.utils import embedding_functions
 from sentence_transformers import SentenceTransformer
 from config import DB_CONFIG, TABLE_NAME, CHROMA_PATH, COLLECTION_NAME
 
-# ---------------------- 网络配置（解决SSL超时） ----------------------
-# 1. 设置代理（替换为你的代理地址，如Clash的127.0.0.1:7890）
-os.environ["HTTP_PROXY"] = "http://127.0.0.1:7890"
-os.environ["HTTPS_PROXY"] = "http://127.0.0.1:7890"
-
-# 2. 禁用SSL验证（临时测试用，生产环境注释掉）
-ssl._create_default_https_context = ssl._create_unverified_context
-
-# ---------------------- 构建Chroma向量库 ----------------------
 def build_vector_db(limit: int = 100):
     try:
         # 1. 连接MySQL，加载样本
